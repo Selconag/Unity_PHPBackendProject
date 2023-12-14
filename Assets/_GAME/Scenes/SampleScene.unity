@@ -338,6 +338,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 01fed51ef7706084688d99c0000085ca, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  GetRequestPage: GetUsers
+  LoginPage: Login
+  UserName: selocanus
+  Password: selo123
 --- !u!4 &1546475298
 Transform:
   m_ObjectHideFlags: 0
