@@ -340,8 +340,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   GetRequestPage: GetUsers
   LoginPage: Login
-  UserName: selocanus
-  Password: selo123
+  RegisterPage: RegisterUser
+  UserName: selocanus1629
+  Password: selo12345
 --- !u!4 &1546475298
 Transform:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ public class Web : MonoBehaviour
 {
     public string GetRequestPage = "GetUsers";
     public string LoginPage = "Login";
+    public string RegisterPage = "RegisterUser";
 
     public string UserName, Password;
 
@@ -18,7 +19,8 @@ public class Web : MonoBehaviour
     {
         // A correct website page.
         //StartCoroutine(GetRequest($"http://localhost/Unity_Backend/"+GetRequestPage+".php"));
-        StartCoroutine(Login(UserName,Password));
+        //StartCoroutine(Login(UserName,Password));
+        StartCoroutine(RegisterUser(UserName,Password));
 
         // A non-existing page.
         //StartCoroutine(GetRequest("https://error.html"));
@@ -57,6 +59,27 @@ public class Web : MonoBehaviour
         form.AddField("loginPass", password);
 
         using (UnityWebRequest www = UnityWebRequest.Post($"http://localhost/Unity_Backend/" + LoginPage + ".php", form))
+        {
+            yield return www.SendWebRequest();
+
+            if (www.result != UnityWebRequest.Result.Success)
+            {
+                Debug.Log(www.error);
+            }
+            else
+            {
+                Debug.Log(www.downloadHandler.text);
+            }
+        }
+    }
+
+    IEnumerator RegisterUser(string username, string password)
+    {
+        WWWForm form = new WWWForm();
+        form.AddField("loginUser", username);
+        form.AddField("loginPass", password);
+
+        using (UnityWebRequest www = UnityWebRequest.Post($"http://localhost/Unity_Backend/" + RegisterPage + ".php", form))
         {
             yield return www.SendWebRequest();
 
